@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title or "Register Jawatan Kosong - 2026" }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Daftar jawatan kosong terkini 2026. Mohon sekarang secara online."
+    />
+    <meta name="author" content="Kerajaan Malaysia" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Daftar Jawatan Kosong - Semak Sekarang!"
+    />
+    <meta
+      property="og:description"
+      content="Daftar sekarang untuk dapatkan kuota jawatan kosong."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ request.url }}" />
+    <meta
+      property="og:image"
+      content="https://registjawatan-2k26.pages.dev/img/aidiladha/banner.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="navbar-nav">
+        <a href="#" class="active">
+          Bahasa Melayu <span>| English | 摩訶至 | भारत</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="flash">
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+        message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %} {% endif %} {% endwith %}
+      </div>
+
+      {% block content %} {% endblock %}
+    </div>
+
+    <footer>
+      <img
+        src="{{ url_for('static', filename='ini1.png') }}"
+        alt="Logo Footer"
+      />
+    </footer>
+  </body>
+</html>
